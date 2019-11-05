@@ -1,0 +1,20 @@
+<h1>Update <%= @restaurant.name %> </h1>
+
+<% if @restaurant.errors.any? %>
+  <% @restaurant.errors.full_messages.each do |msg| %>
+    <p><%= msg %></p>
+  <% end %>
+<% end %>
+
+<!-- @restaurant has an id! -->
+<%= form_for @restaurant do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+  <%= f.label :address %>
+  <%= f.text_field :address %>
+  <%= f.submit %>
+<% end %>
+
+<%= link_to restaurant_path, method: :delete do %>
+  <p>🗑</p>
+<% end %>
